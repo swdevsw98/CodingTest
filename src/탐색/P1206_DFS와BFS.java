@@ -48,9 +48,9 @@ public class P1206_DFS와BFS {
         visited[Node] = true;
 
         while (!queue.isEmpty()) {
-            int new_Node = queue.poll();
-            System.out.printf(new_Node + " ");
-            for(int i : A[new_Node]) {
+            int now_Node = queue.poll();
+            System.out.printf(now_Node + " ");
+            for(int i : A[now_Node]) {
                 if (!visited[i]) {
                     visited[i] = true;
                     queue.add(i);
