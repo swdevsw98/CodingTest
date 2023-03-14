@@ -8,13 +8,13 @@ public class P11657_타임머신 {
     private static BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
     static int N, M;
     static long distance[];
-    static Edge edges[];
+    static Edge2 edges[];
 
     public static void main(String[] args) throws IOException {
         StringTokenizer st = new StringTokenizer(br.readLine());
         N = Integer.parseInt(st.nextToken());
         M = Integer.parseInt(st.nextToken());
-        edges = new Edge[M + 1];
+        edges = new Edge2[M + 1];
         distance = new long[N + 1];
         Arrays.fill(distance, Integer.MAX_VALUE);
         for(int i = 0; i < M; i++){
@@ -22,12 +22,12 @@ public class P11657_타임머신 {
             int start = Integer.parseInt(st.nextToken());
             int end = Integer.parseInt(st.nextToken());
             int time = Integer.parseInt(st.nextToken());
-            edges[i] = new Edge(start, end, time);
+            edges[i] = new Edge2(start, end, time);
         }
         distance[1] = 0;
         for(int i = 1; i < N; i++){
             for(int j = 0; j < M; j++){
-                Edge edge = edges[i];
+                Edge2 edge = edges[i];
                 if(distance[edge.start] != Integer.MAX_VALUE
                     && distance[edge.end] > distance[edge.start] + edge.time) {
                     distance[edge.end] = distance[edge.start] + edge.time;
@@ -36,7 +36,7 @@ public class P11657_타임머신 {
         }
         boolean mCycle = false;
         for(int i = 0; i < M; i++){
-            Edge edge = edges[i];
+            Edge2 edge = edges[i];
             if(distance[edge.start] != Integer.MAX_VALUE
                 && distance[edge.end] > distance[edge.start] + edge.time){
                 mCycle = true;
@@ -54,9 +54,9 @@ public class P11657_타임머신 {
         }
     }
 }
-class Edge{
+class Edge2{
     int start, end, time;
-    public Edge(int start, int end, int time) {
+    public Edge2(int start, int end, int time) {
         this.start = start;
         this.end = end;
         this.time = time;
