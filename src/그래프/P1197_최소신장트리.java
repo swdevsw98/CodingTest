@@ -60,6 +60,6 @@ class pEdge implements Comparable<pEdge> {
     }
     @Override
     public int compareTo(pEdge o){
-        return this.v - o.v;
+        return this.v - o.v; // 오름차순
     }
 }
