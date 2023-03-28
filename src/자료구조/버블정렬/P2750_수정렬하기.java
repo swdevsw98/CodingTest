@@ -1,4 +1,4 @@
-package 자료구조;
+package 자료구조.버블정렬;
 import java.util.*;
 
 public class P2750_수정렬하기 {
